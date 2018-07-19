@@ -6,7 +6,6 @@ import { AppComponent } from './app.component';
 import { SectionComponent } from './section/section.component';
 import { LoginComponent } from './login/login.component';
 import { RegistroComponent } from './registro/registro.component';
-import { EdiarPerfilComponent } from './ediar-perfil/ediar-perfil.component';
 import { EditarPerfilComponent } from './editar-perfil/editar-perfil.component';
 import { FooterComponent } from './footer/footer.component';
 import { HeaderComponent } from './header/header.component';
@@ -23,7 +22,6 @@ import { ListaAmigoComponent } from './lista-amigo/lista-amigo.component';
     SectionComponent,
     LoginComponent,
     RegistroComponent,
-    EdiarPerfilComponent,
     EditarPerfilComponent,
     FooterComponent,
     HeaderComponent,
