@@ -3,6 +3,7 @@ import { NgForm } from '../../../node_modules/@angular/forms';
 import{ Usuario } from '../modelos/usuario'
 import { UsuarioService} from '../services/usuario.service';
 import { Router } from '@angular/router';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-registro',
@@ -11,21 +12,29 @@ import { Router } from '@angular/router';
 })
 export class RegistroComponent implements OnInit {
 
-  newUsuario:Usuario = new Usuario(0,"Isaac","Mesa","is@is.es","1234","");
-  fraseLocal:string="";
-
-  constructor(private _usuariosService:UsuarioService, ) { }
+  regiForm: FormGroup;
+  
+  constructor(private _usuariosService:UsuarioService, private router: Router,private formBuilder: FormBuilder ) { }
 
   ngOnInit() {
   }
+  
   onSubmit(regiForm:NgForm){
    
-    if(regiForm.valid){
-      this._usuariosService.addUsuario(this.newUsuario);
-    
-      console.log("dame un usuario=",this.newUsuario.apellidos);
+    if(this.regiForm.invalid){
+      return;
     }
-    
+      this._usuariosService.addUsuario(this.regiForm.value);
+      .subscribe(
+        data=>{
+          this.router.navigate(['/login']);
+          console.log("dame un usuario=",this.regiForm.value);
+        },
+
+  );
+  
+    }
   }
-}
+  
+
 

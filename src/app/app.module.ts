@@ -19,6 +19,7 @@ import { PageNotFoundComponent } from './commons/page-not-found/page-not-found.c
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { UsuarioService } from './services/usuario.service';
 import { HttpClientModule } from '@angular/common/http';
+import { AuthService } from './services/auth.service';
 
 @NgModule({
   declarations: [
@@ -47,6 +48,7 @@ import { HttpClientModule } from '@angular/common/http';
   ],
   providers: [
     UsuarioService,
+    AuthService
   ],
   bootstrap: [AppComponent]
 })
