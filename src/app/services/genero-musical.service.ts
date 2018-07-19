@@ -5,15 +5,16 @@ import { tap } from 'rxjs/operators';
 import { of } from 'rxjs';
 import { Router } from '../../../node_modules/@angular/router';
 import{Genero_Musical} from '../modelos/genero_musical'
+import { AuthService } from './auth.service';
 
 @Injectable()
 export class TareasService {
 
   private _generoMusicalStore: Genero_Musical[];
-  private _apiGeneroMusical: string = '';
+  private _apiGeneroMusical: string = 'http://localhost:8080/SoundClubApp/api/genero_musical';
   private _generoMusicalObs: Observable<Genero_Musical[]>;
 
-  constructor(private _httpClient: HttpClient, private _router:Router) {
+  constructor(private _httpClient: HttpClient,private _authService:AuthService, private _router:Router) {
 
   }
 

@@ -12,18 +12,18 @@ import { NgForm } from '../../../node_modules/@angular/forms';
   styleUrls: ['./editar-perfil.component.css']
 })
 export class EditarPerfilComponent implements OnInit {
-  usuario:Usuario = new Usuario(0, "Isaac", "Mesa", "is@is.com", "1234", "");
-  unPais: Pais = new Pais (0, "AFG", "Afganistan");
+  unUsuario: Usuario;
+  
 
   constructor(private _usuarioService:UsuarioService, private _httpClient: HttpClient, private _router:Router) { }
 
   ngOnInit() {
-    // this._usuarioService.getUsuarioById(this.usuario.uid).subscribe(losUsuarios=>
-    //   {this.usuario=losUsuarios;}
-    // );
+    this.unUsuario =  this._usuarioService.getUsuarioById(2)
+    console.log(this.unUsuario)
+    
   }
   onSubmit(editForm:NgForm){
-    if(editForm.valid){console.log(this.usuario)
+    if(editForm.valid){console.log(this.unUsuario)
       
     }
   }
