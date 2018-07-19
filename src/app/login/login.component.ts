@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
 import{ Usuario } from '../modelos/usuario'
-import { LogoutService } from '../services/logout.service';
+import {  } from '../services/usuario.service';
 import { NgForm } from '../../../node_modules/@angular/forms';
 
 
@@ -12,7 +12,7 @@ import { NgForm } from '../../../node_modules/@angular/forms';
 })
 export class LoginComponent implements OnInit {
 
-  
+  usuario:Usuario= new Usuario();
 
 
   constructor() { }
@@ -20,5 +20,12 @@ export class LoginComponent implements OnInit {
   ngOnInit() {
   
   }
+
+  onSubmit(logForm: NgForm){
+    if(logForm.valid){
+    
+    }
+  }
+
 
 }

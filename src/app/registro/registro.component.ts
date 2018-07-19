@@ -11,19 +11,21 @@ import { Router } from '@angular/router';
 })
 export class RegistroComponent implements OnInit {
 
-  newUsuario:Usuario = new Usuario(0,"Isaac","Mesa","is@is.es","1234","1234");
-  
+  newUsuario:Usuario = new Usuario(0,"Isaac","Mesa","is@is.es","1234","");
+  fraseLocal:string="";
+
   constructor(private _usuariosService:UsuarioService, ) { }
 
   ngOnInit() {
   }
   onSubmit(regiForm:NgForm){
    
-    if(regiForm){
-      let isOK = this._usuariosService.addUsuario(this.newUsuario);
+    if(regiForm.valid){
+      this._usuariosService.addUsuario(this.newUsuario);
     
-      console.log("dame un usuario="+this.newUsuario);
+     
     }
+    
   }
 }
 
