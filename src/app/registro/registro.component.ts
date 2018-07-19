@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { NgForm } from '../../../node_modules/@angular/forms';
 import{ Usuario } from '../modelos/usuario'
 import { UsuarioService} from '../services/usuario.service';
-
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-registro',
@@ -11,17 +11,18 @@ import { UsuarioService} from '../services/usuario.service';
 })
 export class RegistroComponent implements OnInit {
 
-  nuevoUsu:Usuario = new Usuario(0,"","","is@is.es","XXX");
+  newUsuario:Usuario = new Usuario(0,"Isaac","Mesa","is@is.es","1234","1234");
   
-  constructor(private _usuariosService:UsuarioService) { }
+  constructor(private _usuariosService:UsuarioService, ) { }
 
   ngOnInit() {
   }
-  onSubmit(regForm:NgForm){
-    console.log(regForm,this.nuevoUsu);
-    if(regForm){
-      let isOK = this._usuariosService.addUsuario(this.nuevoUsu);
+  onSubmit(regiForm:NgForm){
+   
+    if(regiForm){
+      let isOK = this._usuariosService.addUsuario(this.newUsuario);
     
+      console.log("dame un usuario="+this.newUsuario);
     }
   }
 }

@@ -1,5 +1,6 @@
 
   import { Injectable } from '@angular/core';
+
   import { Usuario } from '../modelos/usuario';
   import { HttpClient, HttpHeaders } from '@angular/common/http';
   import { Observable } from 'rxjs';
@@ -11,7 +12,7 @@
   export class UsuarioService {
   
     private _usuarioStore: Usuario[];
-   // private _apiUsuarios: string = 'http://www.mocky.io/v2/5b50a3c53600005600dd0f55';
+    private _apiUsuarios: string = 'http://www.mocky.io/v2/5b50a3c53600005600dd0f55';
     private _usuarioObs: Observable<Usuario[]>;
   
     constructor(private _httpClient: HttpClient, private _router:Router) {

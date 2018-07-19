@@ -1,25 +1,32 @@
-<form #regiForm="regForm" (regForm)="onSubmit(regiForm)">
-  <h2>
-    Registrate
-  </h2>
-  <div>
-    <input type="text" placeholder="&#128272;" name="nombre" id="usuario" required>
-  </div>
-  <div>
-    <input type="text" placeholder="&#128272;" name="apellidos" id="Apellidos" required>
-  </div>
-  <div>
-    <input id="emailsignup" name="emailsignup" type="email" placeholder="&#128272;" required>
-  </div>
-  <div>
-    <input type="password" id="passwordsignup" minlength="3" maxlength="12" placeholder="&#128272;" name="clave">
-  </div>
-  <div>
-    <input id="passwordsignup_confirm" minlength="3" maxlength="12" name="confirmar_clave" required="required" type="password"
-      placeholder="&#128272;" />
-  </div>
-  <div>
-    <button [disabled]="regiForm.valid"></button>
-  </div>
+<section>
+  <form #regiForm="ngForm" (regForm)="onSubmit(regiForm)">
+    <h2>
+      Registrate
+    </h2>
+    <div>
+      <label for="">Nombre</label>
+      <input type="text" [(ngModel)]="newUsuario.nombre" placeholder="&#128272;" name="nombre" id="usuario" required>
+    </div>
+    <div>
+        <label for="">Apellidos</label>
+      <input type="text" [(ngModel)]="newUsuario.apellidos" placeholder="&#128272;" name="apellidos" id="Apellidos" required>
+    </div>
+    <div>
+        <label for="">Email</label>
+      <input id="emailsignup" name="emailsignup" type="email" [(ngModel)]="newUsuario.email" placeholder="&#128272;" required>
+    </div>
+    <div>
+        <label for="">Contraseña</label>
+      <input type="password" [(ngModel)]="newUsuario.password" id="passwordsignup" minlength="3" maxlength="12" placeholder="" name="clave">
+    </div>
+    <div>
+        <label for="">Repite Contraseña</label>
+      <input id="passwordsignup_confirm"  minlength="3" maxlength="12" name="confirmar_clave" required="required" type="password"
+        placeholder="&#128272;" />
+    </div>
+    <div>
+      <button [disabled]="!regiForm.valid">Registrate</button>
+    </div>
 
-</form>
+  </form>
+</section>

@@ -16,6 +16,9 @@ import { ListaUsuarioBuscadoComponent } from './lista-usuario-buscado/lista-usua
 import { DatosUsuarioBusquedaComponent } from './datos-usuario-busqueda/datos-usuario-busqueda.component';
 import { ListaAmigoComponent } from './lista-amigo/lista-amigo.component';
 import { PageNotFoundComponent } from './commons/page-not-found/page-not-found.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { UsuarioService } from './services/usuario.service';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -32,13 +35,19 @@ import { PageNotFoundComponent } from './commons/page-not-found/page-not-found.c
     ListaUsuarioBuscadoComponent,
     DatosUsuarioBusquedaComponent,
     ListaAmigoComponent,
-    PageNotFoundComponent
+    PageNotFoundComponent,
+    
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FormsModule,
+    ReactiveFormsModule,
+    HttpClientModule
   ],
-  providers: [],
+  providers: [
+    UsuarioService,
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
