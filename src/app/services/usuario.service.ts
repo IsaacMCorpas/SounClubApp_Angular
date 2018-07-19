@@ -25,4 +25,12 @@
     getUsuarioById(uid: number): Usuario {
       return this._usuarioStore.find((aT: Usuario) => (aT.uid == uid));
     }
+
+
+    addUsuario(nuevoUsuario: Usuario):boolean{
+      nuevoUsuario.uid=5;
+      console.log(nuevoUsuario);
+      this._usuarioStore.push(nuevoUsuario);
+      return true;
+    }
   }
