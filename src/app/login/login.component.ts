@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 
+import { LogoutService } from '../services/logout.service';
+import { NgForm } from '../../../node_modules/@angular/forms';
+
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -7,9 +10,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class LoginComponent implements OnInit {
 
+
+
+
   constructor() { }
 
   ngOnInit() {
+  
+    
+  
   }
-
 }
