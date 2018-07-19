@@ -1,3 +1,10 @@
-<p>
-  buscar works!
-</p>
+<div >
+	<form  #frmBusqueda="ngForm"  (ngSubmit)="onSubmit(frmBusqueda)" id="fsbusqueda" >
+      <input type="search" name="nameToFind"  [(ngModel)]="nameToFind" id="txtbusqueda"  placeholder=" Buscar..." required >
+      <button id="btnbusqueda" [disabled]="!frmBusqueda.valid"> Buscar
+        <!--<i id="fa fa-search" class="fa fa-search"></i>-->
+      </button>
+  </form>
+  <div id="sugerencias"></div>
+		
+	</div>
