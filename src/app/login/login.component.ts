@@ -12,7 +12,7 @@ import { NgForm } from '../../../node_modules/@angular/forms';
 })
 export class LoginComponent implements OnInit {
 
-  usuario:Usuario= new Usuario();
+
 
 
   constructor() { }

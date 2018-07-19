@@ -23,7 +23,7 @@ export class RegistroComponent implements OnInit {
     if(regiForm.valid){
       this._usuariosService.addUsuario(this.newUsuario);
     
-     
+      console.log("dame un usuario=",this.newUsuario.apellidos);
     }
     
   }
