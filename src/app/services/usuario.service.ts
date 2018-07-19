@@ -52,17 +52,44 @@ import { AuthService } from './auth.service';
 
   }
   
-    getUsuarioById(uid: number): Usuario {
+    getUsuarioById(uid: number):Observable<Usuario> {
+      let usuarioBuscado:Observable<Usuario>=null;
+      const httpOptions = {
+        headers: new HttpHeaders({
+          'Content-Type':  'application/json',
+          'token':this._AuthService.getToken(),
+        })
+      }; 
+      let urlUsuario=this._apiUsuario+'/'+uid;
+      return this._httpClient.get<Usuario>(urlUsuario,httpOptions)
+      .pipe(
+        tap( data=>{
+         
+        },
+        error=>console.log('Error en Usuario.service ::',error)
+        )
+      );
 
-      return this._usuarioStore.find((aT: Usuario) => (aT.uid == uid));
     }
 
 
-    addUsuario(nuevoUsuario: Usuario){
+    addUsuario(nuevoUsuario: Usuario):Observable<number>{
       console.log(nuevoUsuario.apellidos);
-     
-      nuevoUsuario.uid=5;
-      this._usuarioStore.push(nuevoUsuario);
+      const httpOptions = {
+        headers: new HttpHeaders({
+          'Content-Type':  'application/json',
+          'token':this._AuthService.getToken(),
+        })
+      }; 
+      
+      return this._httpClient.post<any>(this._apiUsuario,nuevoUsuario,httpOptions)
+      .pipe(
+        tap(data => { 
+          //falta poner dato
+        },
+        error => console.log('error:', error)
+        )
+      );
       
       
     }
