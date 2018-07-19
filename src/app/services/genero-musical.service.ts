@@ -10,15 +10,36 @@ import{Genero_Musical} from '../modelos/genero_musical'
 export class TareasService {
 
   private _generoMusicalStore: Genero_Musical[];
-  // private _apiGeneroMusical: string = '';
+  private _apiGeneroMusical: string = '';
   private _generoMusicalObs: Observable<Genero_Musical[]>;
 
   constructor(private _httpClient: HttpClient, private _router:Router) {
 
   }
 
-  getGenerosMusicales(): Genero_Musical[] {
-    return this._generoMusicalStore;
+  getGenerosMusicalesFromApi(): Observable<Genero_Musical[]> {
+     const httpOptions = {
+       headers: new HttpHeaders({
+         'Content-Type': 'application/json',
+        'token': this._authService.getToken()
+      })
+     };
+
+    if (this._generoMusicalStore) {
+      this._generoMusicalObs = of(this._generoMusicalStore);
+    } else if (this._generoMusicalObs) {
+      //observable ya está en curso
+    } else {
+      this._generoMusicalObs = this._httpClient.get<Genero_Musical[]>(this._apiGeneroMusical,httpOptions)
+        .pipe(
+          tap(
+            data => this._generoMusicalStore = data,
+            error => {console.log('error:', error); this._router.navigate(['/login']);}
+          )
+        );
+    }
+
+    return this._generoMusicalObs;
   }
 
   getGenerosMusicalesById(mid: number): Genero_Musical {
