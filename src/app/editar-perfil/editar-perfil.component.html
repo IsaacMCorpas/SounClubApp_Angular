@@ -1,38 +1,69 @@
 <div>
-  <form action="">
+  <form #editForm="ngForm" (ngSubmit)="onSubmit(editForm)">
     <div>
+      <div>
+        <label>Seleccione una imagen de perfil: <input type="file"
+          id="files" name="files" />
+        </label>
+        <img src="">
+        <output id="list"></output>
+        <div id="foto"></div>
+      </div>
+      <div>
       <label for="nombre"></label>
       <input type="text" name="nombre" id="nombre" [(ngModel)]="usuario.nombre">
+      </div>
+      <div>
       <label for="apellidos"></label>
       <input type="text" name="apellidos" id="apellidos" [(ngModel)]="usuario.apellidos">
+    </div>
+    <div>
       <label for="email"></label>
       <input type="text" name="email" id="email" [(ngModel)]="usuario.email">
+    </div>
+    <div>
       <label for="password"></label>
       <input type="password" name="password" id="password" [(ngModel)]="usuario.password">
+    </div>
+    <div>
       <label for="repassword"></label>
       <input type="password" name="repassword" id="repassword" [(ngModel)]="usuario.password">
+    </div>
+    <div>
       <label for="ciudad"></label>
       <input type="text" name="ciudad" id="ciudad" [(ngModel)]="usuario.ciudad">
-      <label for=""></label>
-      <input type="text" name="" id="" [(ngModel)]="usuario.nombre">
-      <label for=""></label>
-      <input type="text" name="" id="" [(ngModel)]="usuario.nombre">
-      <label for=""></label>
-      <input type="text" name="" id="" [(ngModel)]="usuario.nombre">
-      <label for="proyecto">Proyecto:</label>
-      <select name="pais" id="pais" [(ngModel)]="pais.nombre" required>
-        <option *ngFor="let unPais of pais" [ngValue]="unPais.cid">{{unPais.nombre}}</option>
-      </select>
-      <label for=""></label>
-      <input type="text" name="" id="" [(ngModel)]="usuario.nombre">
-      <label for=""></label>
-      <input type="text" name="" id="" [(ngModel)]="usuario.nombre">
-      <label for=""></label>
-      <input type="text" name="" id="" [(ngModel)]="usuario.nombre">
-      <label for=""></label>
-      <input type="text" name="" id="" [(ngModel)]="usuario.nombre">
-      <label for=""></label>
-      <input type="text" name="" id="" [(ngModel)]="usuario.nombre">
     </div>
+    <div>
+      <label for="calle"></label>
+      <input type="text" name="calle" id="calle" [(ngModel)]="usuario.calle">
+    </div>
+    <div>
+      <label for="fecha"></label>
+      <input type="date" name="fecha" value="">
+    </div>
+    <div>
+      <label for="sexo"></label>
+      <input type="radio" name="sexo" id="sexo" [(ngModel)]="usuario.sexo">
+    </div>
+    <div>
+      <label for="pais"></label>
+      <select name="pais" id="pais" [(ngModel)]="unPais.nombre" required>
+        <option *ngFor="let unPais of pais" [ngValue]="unPais.cid"></option>
+      </select>
+    </div>
+    <div>
+      <label for="listaInstrumentos"></label>
+      <input type="checkbox" name="listaInstrumentos" id="listaInstrumentos" [(ngModel)]="usuario.listaInstrumentos">
+    </div>
+    <div>
+      <label for="listaGenero_musical"></label>
+      <input type="checkbox" name="listaGenero_musical" id="listaGenero_musical" [(ngModel)]="usuario.listaGenero_musical">
+    </div>
+    </div>
+    <br> <br>
+			<button id="btn_Enviar" type="submit">
+				Aceptar:</button>
+			<button id="btnlimpiar" type="reset" value="Limpiar">
+				Limpiar:</button>
   </form>
 </div>
