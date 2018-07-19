@@ -11,11 +11,18 @@
   export class UsuarioService {
   
     private _usuarioStore: Usuario[];
-   // private _apiUsuarios: string = 'http://www.mocky.io/v2/5b50a3c53600005600dd0f55';
+    private _apiUsuarios: string = 'http://www.mocky.io/v2/5b50a3c53600005600dd0f55';
     private _usuarioObs: Observable<Usuario[]>;
   
     constructor(private _httpClient: HttpClient, private _router:Router) {
   
+    }
+    ngOnInit(){
+      if(this._usuarioStore==null){
+        this._usuarioStore=JSON.parse(this._apiUsuarios);
+      }
+      console.log(this._usuarioStore);
+      
     }
   
     getUsuarios(): Usuario[] {
@@ -23,6 +30,7 @@
     }
   
     getUsuarioById(uid: number): Usuario {
+
       return this._usuarioStore.find((aT: Usuario) => (aT.uid == uid));
     }
 
