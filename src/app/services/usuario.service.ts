@@ -18,12 +18,20 @@
     constructor(private _httpClient: HttpClient, private _router:Router) {
   
     }
+    ngOnInit(){
+      if(this._usuarioStore==null){
+        this._usuarioStore=JSON.parse(this._apiUsuarios);
+      }
+      console.log(this._usuarioStore);
+      
+    }
   
     getUsuarios(): Usuario[] {
       return this._usuarioStore;
     }
   
     getUsuarioById(uid: number): Usuario {
+
       return this._usuarioStore.find((aT: Usuario) => (aT.uid == uid));
     }
 
