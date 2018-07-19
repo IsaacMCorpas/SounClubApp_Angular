@@ -15,6 +15,7 @@ import { BuscarComponent } from './header/buscar/buscar.component';
 import { ListaUsuarioBuscadoComponent } from './lista-usuario-buscado/lista-usuario-buscado.component';
 import { DatosUsuarioBusquedaComponent } from './datos-usuario-busqueda/datos-usuario-busqueda.component';
 import { ListaAmigoComponent } from './lista-amigo/lista-amigo.component';
+import { PageNotFoundComponent } from './commons/page-not-found/page-not-found.component';
 
 @NgModule({
   declarations: [
@@ -30,7 +31,8 @@ import { ListaAmigoComponent } from './lista-amigo/lista-amigo.component';
     BuscarComponent,
     ListaUsuarioBuscadoComponent,
     DatosUsuarioBusquedaComponent,
-    ListaAmigoComponent
+    ListaAmigoComponent,
+    PageNotFoundComponent
   ],
   imports: [
     BrowserModule,
