@@ -11,7 +11,7 @@
   export class UsuarioService {
   
     private _usuarioStore: Usuario[];
-   // private _apiUsuarios: string = '';
+   // private _apiUsuarios: string = 'http://www.mocky.io/v2/5b50a3c53600005600dd0f55';
     private _usuarioObs: Observable<Usuario[]>;
   
     constructor(private _httpClient: HttpClient, private _router:Router) {
