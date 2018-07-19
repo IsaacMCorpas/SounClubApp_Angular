@@ -5,15 +5,16 @@ import { Router } from '../../../node_modules/@angular/router';
 import { of } from 'rxjs';
 import { tap } from '../../../node_modules/rxjs/operators';
 import { HttpHeaders, HttpClient } from '../../../node_modules/@angular/common/http';
+import { AuthService } from './auth.service';
 
 @Injectable()
 export class PaisService {
 
   private _paisesStore: Pais[];
-  private _apiPaises:string= '';
+  private _apiPaises:string= 'http://localhost:8080/SoundClubApp/api/pais';
   private _paisesObs:Observable<Pais[]>;
 
-  constructor(private _httpClient: HttpClient, private _router: Router) { }
+  constructor(private _httpClient: HttpClient, private _router: Router,private _authService:AuthService) { }
 
 
   getPaises(): Pais[]{

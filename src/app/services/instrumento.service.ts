@@ -5,16 +5,17 @@ import { HttpHeaders, HttpClient } from '../../../node_modules/@angular/common/h
 import { tap } from '../../../node_modules/rxjs/operators';
 import { Router } from '../../../node_modules/@angular/router';
 import { of } from 'rxjs';
+import { AuthService } from './auth.service';
 
 @Injectable()
 export class InstrumentoService {
 
 
   private _instrumentosStore: Instrumento[];
-  private _apiInstrumentos: string = '';
+  private _apiInstrumento: string ='http://localhost:8080/SoundClubApp/api/Instrumento';
   private _instrumentosObs: Observable<Instrumento[]>;
 
-  constructor(private _httpClient: HttpClient, private _router: Router) { }
+  constructor(private _httpClient: HttpClient, private _router: Router,private _authService:AuthService) { }
 
 
   getIntrumentos(): Instrumento[] {
@@ -41,7 +42,7 @@ export class InstrumentoService {
     } else if (this._instrumentosStore) {
 
     } else {
-      this._instrumentosObs = this._httpClient.get<Instrumento[]>(this._apiInstrumentos, httpOptions)
+      this._instrumentosObs = this._httpClient.get<Instrumento[]>(this._apiInstrumento, httpOptions)
         .pipe(
           tap(
             data => this._instrumentosStore = data,
