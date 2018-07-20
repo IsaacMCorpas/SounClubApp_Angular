@@ -35,5 +35,14 @@ unUsuario:Usuario;
     }
   }
 
+  buscarAmigos(nameToFind){
+    console.log("nombre a buscar",nameToFind);
+    this._usuariosService.getUsuariosBuscados(nameToFind).subscribe(
+      lista=>{
+        this.listaUsuarios=lista;
+      }
+    );
+  }
+
 
 }
