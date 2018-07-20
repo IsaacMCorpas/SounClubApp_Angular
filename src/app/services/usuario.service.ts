@@ -1,8 +1,9 @@
 
+ 
   import { Injectable } from '@angular/core';
 
   import { Usuario } from '../modelos/usuario';
-  import { HttpClient, HttpHeaders } from '@angular/common/http';
+  import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
   import { Observable } from 'rxjs';
   import { tap } from 'rxjs/operators';
   import { of } from 'rxjs';
@@ -27,7 +28,7 @@ import { AuthService } from './auth.service';
   
 
   
-  getUsuariosFromAPI(): Observable<Usuario[]> {
+  getListaUsuarios(): Observable<Usuario[]> {
     const httpOptions = {
       headers: new HttpHeaders({
         'Content-Type':  'application/json',
@@ -63,12 +64,12 @@ import { AuthService } from './auth.service';
       }; 
       
       let urlUsuario=this._apiUsuario+'/'+uid;
-      console.log("Error en el buscador ::",urlUsuario);
+      console.log("La URL getUsuarioByID ::",urlUsuario);
       return this._httpClient.get<Usuario>(urlUsuario,httpOptions)
       .pipe(
         tap( data=>{
           //usuarioBuscado=data;
-          console.log("Error en el buscador ::",data);
+          //console.log("Muestro datos que obtengo en getUsuarioByID ::",usuarioBuscado);
         },
         error=>console.log('Error en Usuario.service ::',error)
         )
@@ -78,7 +79,7 @@ import { AuthService } from './auth.service';
 
 
     addUsuario(userAdd: Usuario):Observable<Usuario>{
-      console.log(userAdd);
+      console.log(userAdd.apellidos);
       const httpOptions = {
         headers: new HttpHeaders({
           'Content-Type':  'application/json',
@@ -98,7 +99,7 @@ import { AuthService } from './auth.service';
       
     }
     
-    actualizarUsuario(userUpdate: Usuario){
+    actualizarUsuario(userUpdate: Usuario):Observable<any>{
       const httpOptions = {
         headers: new HttpHeaders({
           'Content-Type':  'application/json',
@@ -118,5 +119,32 @@ import { AuthService } from './auth.service';
 
     }
 
+    getUsuariosBuscados(nombre: string):Observable<any>{
+
+      //let myParams= new HttpParams().set("name",nombre);
+      const httpOptions = {
+        headers: new HttpHeaders({
+          'Content-Type':  'application/json',
+          'token':this._AuthService.getToken(),
+
+        }),
+        params: {
+          name: nombre
+        } ,
+      }; 
+
+      let urlUsuario=this._apiUsuario+'/query';
+      return this._httpClient.get<any>(this._apiUsuario,httpOptions)
+      .pipe(
+        tap(data => { 
+          console.log('Muestra lista de usuario Buscados:', data);
+        },
+        error => console.log('error:', error)
+        )
+      );
+
+    }
+
     
   };
+
