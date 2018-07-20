@@ -12,7 +12,7 @@ import { Router } from '../../../node_modules/@angular/router';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
-  logForm: FormGroup;
+  // logForm: FormGroup;
   loading = false;
   submitted = false;
   returnUrl: string;
@@ -22,35 +22,34 @@ export class LoginComponent implements OnInit {
   constructor(private router: Router,private formBuilder: FormBuilder) { }
 
   ngOnInit() {
-    this.logForm = this.formBuilder.group({
-      username: ['', Validators.required],
-      password: ['', Validators.required]
-    });
+    // this.logForm = this.formBuilder.group({
+    //   username: ['', Validators.required],
+    //   password: ['', Validators.required]
+    };
  
     // reset login status
-    this.authenticationService.logout();
+    // this.authenticationService.logout();
 
     // get return url from route parameters or default to '/'
-    this.returnUrl = this.router.snapshot.queryParams['returnUrl'] || '/';
-}
+//     this.returnUrl = this.router.snapshot.queryParams['returnUrl'] || '/';
+// }
 
 // convenience getter for easy access to form fields
-get f() { return this.loginForm.controls; }
+// get f() { return this.loginForm.controls; }
 
   }
 
-  onSubmit(logForm: NgForm){
-    if(this.logForm.invalid){
-    return;
-    }
-    this.authenticateService.login(this.name.value, this.apellidos.value, this.email.value, password.value)
+  // onSubmit(logForm: NgForm){
+  //   if(this.logForm.invalid){
+  //   return;
+  //   }
+  //   this.authenticateService.login(this.name.value, this.apellidos.value, this.email.value, password.value)
   
-    .subscribe(
-      data=>{
-        this.router.navigate([this.returnURL]);
-      },
-  )
-  }
+  //   .subscribe(
+  //     data=>{
+  //       this.router.navigate([this.returnURL]);
+  //     },
+  
+  // }
 
 
-}

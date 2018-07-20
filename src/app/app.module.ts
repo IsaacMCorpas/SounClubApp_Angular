@@ -20,6 +20,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { UsuarioService } from './services/usuario.service';
 import { HttpClientModule } from '@angular/common/http';
 import { AuthService } from './services/auth.service';
+import { HttpModule} from '@angular/http'
 
 @NgModule({
   declarations: [
@@ -44,11 +45,14 @@ import { AuthService } from './services/auth.service';
     AppRoutingModule,
     FormsModule,
     ReactiveFormsModule,
-    HttpClientModule
+    HttpClientModule,
+    HttpModule,
+    
   ],
   providers: [
     UsuarioService,
-    AuthService
+    AuthService,
+   
   ],
   bootstrap: [AppComponent]
 })

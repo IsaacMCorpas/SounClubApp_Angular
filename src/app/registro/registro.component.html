@@ -5,24 +5,27 @@
     </h2>
     <div>
       <label for="">Nombre</label>
-      <input type="text" [(ngModel)]="newUsuario.nombre" placeholder="&#128272;" name="nombre" id="usuario" required>
+      <input type="text" [(ngModel)]="Usuario.nombre" placeholder="" name="nombre" id="usuario" required>
+    <!-- <div *ngIf="submitted && f.nombre.errors">
+      <div *ngIf=""></div> -->
+    <!-- </div> -->
     </div>
     <div>
         <label for="">Apellidos</label>
-      <input type="text" [(ngModel)]="newUsuario.apellidos" placeholder="&#128272;" name="apellidos" id="Apellidos" required>
+      <input type="text" [(ngModel)]="Usuario.apellidos" placeholder="" name="apellidos" id="Apellidos" required>
     </div>
     <div>
         <label for="">Email</label>
-      <input id="emailsignup" name="emailsignup" type="email" [(ngModel)]="newUsuario.email" placeholder="&#128272;" required>
+      <input id="email" name="email" type="email" [(ngModel)]="Usuario.email" placeholder="" required>
     </div>
     <div>
         <label for="">Contraseña</label>
-      <input type="password" [(ngModel)]="newUsuario.password" id="passwordsignup" minlength="3" maxlength="12" placeholder="" name="clave">
+      <input type="password" [(ngModel)]="Usuario.password" id="password" minlength="3" maxlength="12" placeholder="" name="password">
     </div>
     <div>
         <label for="">Repite Contraseña</label>
-      <input id="passwordsignup_confirm"  minlength="3" maxlength="12" name="confirmar_clave" required="required" type="password"
-        placeholder="&#128272;" />
+      <input id="password_confirm"  minlength="3" maxlength="12" name="confirmar_clave" required="required" type="password"
+        placeholder=";" />
     </div>
     <div>
       <button [disabled]="!regiForm.valid">Registrate</button>
