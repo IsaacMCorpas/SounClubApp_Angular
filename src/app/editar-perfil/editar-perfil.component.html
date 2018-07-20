@@ -31,7 +31,7 @@
       </div>
       <div>
         <label for="ciudad"></label>
-        <input type="text" name="ciudad" id="ciudad" [(ngModel)]="unUsuario.ciudad">
+        <input type="text" name="ciudad" id="ciudad" [(ngModel)]="unUsuario.ciudad_recide">
       </div>
       <div>
         <label for="calle"></label>
@@ -41,10 +41,24 @@
         <label for="fecha"></label>
         <input type="date" name="fecha" value="">
       </div>
-      <div>
+      <!-- <div>
         <label for="sexo"></label>
         <input type="radio" name="sexo" id="sexo" [(ngModel)]="unUsuario.sexo">
-      </div>
+      </div> -->
+      <fieldset class="sexo">
+				<legend>Seleccione su sexo:</legend>
+				<p>
+					<label> <input name="group" type="radio"
+						[(ngModel)]="unUsuario.sexo" value="0"> <span>Varon</span>
+					</label>
+				</p>
+				<p>
+					<label> <input name="group" [(ngModel)]="unUsuario.sexo"
+						value="1" type="radio"> <span>Mujer</span>
+					</label>
+				</p>
+
+			</fieldset>
       <div>
         <label for="pais"></label>
         <select name="pais" id="pais" [(ngModel)]="unUsuario.pais_recide" required>
