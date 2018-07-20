@@ -99,24 +99,26 @@ import { AuthService } from './auth.service';
       
     }
     
-    actualizarUsuario(userUpdate: Usuario):Observable<any>{
+    actualizarUsuario(userUpdate: Usuario): Observable<Usuario> {
       const httpOptions = {
         headers: new HttpHeaders({
-          'Content-Type':  'application/json',
-          'token':this._AuthService.getToken(),
+          'Content-Type': 'application/json',
+          'token': this._AuthService.getToken(),
         })
-      }; 
-
-      let urlUsuario=this._apiUsuario+'/'+userUpdate.id;
-      return this._httpClient.put<any>(this._apiUsuario,userUpdate,httpOptions)
-      .pipe(
-        tap(data => { 
-          //falta poner dato
-        },
-        error => console.log('error:', error)
-        )
-      );
-
+      };
+      let urlUsuario = this._apiUsuario + '/' + userUpdate.id;
+      console.log("Passa el http options:", userUpdate,httpOptions,urlUsuario);
+  
+      return this._httpClient.put<Usuario>(urlUsuario, userUpdate, httpOptions)
+        .pipe(
+          tap(
+            data => {
+              console.log("UsuarioActualizado:", data);
+              //falta poner dato
+            },
+            error => console.log('error:', error)
+          )
+        );
     }
 
     getUsuariosBuscados(nombre: string):Observable<any>{
