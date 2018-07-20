@@ -14,6 +14,7 @@ import { AuthService } from './auth.service';
   
     
     private _usuarioStore: Usuario[];
+    private _usuario;
     //private _apiUsuarios: string = 'http://www.mocky.io/v2/5b50a3c53600005600dd0f55';
     private _apiUsuario: string ='http://localhost:8080/SoundClubApp/api/usuario';
     private _usuarioObs: Observable<Usuario[]>;
@@ -53,18 +54,21 @@ import { AuthService } from './auth.service';
   }
   
     getUsuarioById(uid: number):Observable<Usuario> {
-      let usuarioBuscado:Observable<Usuario>=null;
+      let usuarioBuscado:Usuario;
       const httpOptions = {
         headers: new HttpHeaders({
           'Content-Type':  'application/json',
           'token':this._AuthService.getToken(),
         })
       }; 
+      
       let urlUsuario=this._apiUsuario+'/'+uid;
+      console.log("Error en el buscador ::",urlUsuario);
       return this._httpClient.get<Usuario>(urlUsuario,httpOptions)
       .pipe(
         tap( data=>{
-         
+          //usuarioBuscado=data;
+          console.log("Error en el buscador ::",data);
         },
         error=>console.log('Error en Usuario.service ::',error)
         )
@@ -73,8 +77,8 @@ import { AuthService } from './auth.service';
     }
 
 
-    addUsuario(nuevoUsuario: Usuario):Observable<number>{
-      console.log(nuevoUsuario.apellidos);
+    addUsuario(userAdd: Usuario):Observable<number>{
+      console.log(userAdd.apellidos);
       const httpOptions = {
         headers: new HttpHeaders({
           'Content-Type':  'application/json',
@@ -82,7 +86,7 @@ import { AuthService } from './auth.service';
         })
       }; 
       
-      return this._httpClient.post<any>(this._apiUsuario,nuevoUsuario,httpOptions)
+      return this._httpClient.post<any>(this._apiUsuario,userAdd,httpOptions)
       .pipe(
         tap(data => { 
           //falta poner dato
@@ -94,6 +98,25 @@ import { AuthService } from './auth.service';
       
     }
     
+    actualizarUsuario(userUpdate: Usuario){
+      const httpOptions = {
+        headers: new HttpHeaders({
+          'Content-Type':  'application/json',
+          'token':this._AuthService.getToken(),
+        })
+      }; 
+
+      let urlUsuario=this._apiUsuario+'/'+userUpdate.uid;
+      return this._httpClient.post<any>(this._apiUsuario,userUpdate,httpOptions)
+      .pipe(
+        tap(data => { 
+          //falta poner dato
+        },
+        error => console.log('error:', error)
+        )
+      );
+
+    }
 
     
   };

@@ -10,17 +10,29 @@ import { Usuario } from '../../modelos/usuario';
 })
 export class BuscarComponent implements OnInit {
 nameToFind:string;
-usuarioEncontrados:Usuario[];
+listaUsuarios:Usuario[];
+unUsuario:Usuario;
   constructor(private _usuariosService:UsuarioService) { }
 
   ngOnInit() {
+    this._usuariosService.getUsuarioById(1).subscribe(
+      usuarioFound=>{
+        console.log("Error en el buscador ::",usuarioFound);
+      
+
+      },
+      error =>{
+        console.log("Error en el buscador :: vvvvvvvvvvvvv",error);
+      }
+
+    );
   }
 
   onSubmit(form:NgForm){
     if(form.valid){
       console.log(this.nameToFind);
       //this.usuarioEncontrados=this._usuariosService.getUsuarios();
-      console.log(this.usuarioEncontrados);
+      console.log(this.listaUsuarios);
 
     }
   }
