@@ -15,11 +15,9 @@ unUsuario:Usuario;
   constructor(private _usuariosService:UsuarioService) { }
 
   ngOnInit() {
-    this._usuariosService.getUsuarioById(1).subscribe(
+    this._usuariosService.getUsuariosBuscados('car').subscribe(
       usuarioFound=>{
         console.log("Error en el buscador ::",usuarioFound);
-      
-
       },
       error =>{
         console.log("Error en el buscador :: vvvvvvvvvvvvv",error);

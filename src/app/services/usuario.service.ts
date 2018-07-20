@@ -121,20 +121,18 @@ import { AuthService } from './auth.service';
 
     getUsuariosBuscados(nombre: string):Observable<any>{
 
-      //let myParams= new HttpParams().set("name",nombre);
+      let myParams= new HttpParams().set("name",nombre);
+      console.log('nombre:', nombre);
       const httpOptions = {
         headers: new HttpHeaders({
           'Content-Type':  'application/json',
           'token':this._AuthService.getToken(),
-
         }),
-        params: {
-          name: nombre
-        } ,
+       params: myParams,
       }; 
 
       let urlUsuario=this._apiUsuario+'/query';
-      return this._httpClient.get<any>(this._apiUsuario,httpOptions)
+      return this._httpClient.get<any>(urlUsuario,httpOptions)
       .pipe(
         tap(data => { 
           console.log('Muestra lista de usuario Buscados:', data);
