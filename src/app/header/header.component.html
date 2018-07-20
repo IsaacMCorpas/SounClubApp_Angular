@@ -1,3 +1,19 @@
-<app-logo></app-logo>
+<mat-toolbar id="barNav">
+    <mat-toolbar-row>
+        <span>
+            <app-logo></app-logo>
+        </span>
+        <span class="example-spacer"></span>
+        <app-buscar></app-buscar>
+        <div id="editPer" class="button-row">
+            <a mat-fab routerLink=".">Editar Perfil</a>
+        </div>
+        <div id="salir" class="button-row">
+            <a mat-fab routerLink="."><app-menu></app-menu></a>
+        </div>
+        
+    </mat-toolbar-row>
+</mat-toolbar>
+
+
 <app-menu></app-menu>
-<app-buscar></app-buscar>

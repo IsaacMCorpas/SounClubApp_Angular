@@ -4,7 +4,7 @@ import{ Usuario } from '../modelos/usuario'
 import {  } from '../services/usuario.service';
 import { NgForm, FormBuilder } from '../../../node_modules/@angular/forms';
 import { Router } from '../../../node_modules/@angular/router';
-
+import { AuthService } from '../services/auth.service';
 
 @Component({
   selector: 'app-login',
@@ -15,41 +15,26 @@ export class LoginComponent implements OnInit {
   // logForm: FormGroup;
   loading = false;
   submitted = false;
-  returnUrl: string;
+  usuario: Usuario = new Usuario(0,"","","","");
+  errorForm: boolean = false;
+  errorServer: boolean = false;
 
-
-
-  constructor(private router: Router,private formBuilder: FormBuilder) { }
+  constructor(private _authService: AuthService, private _router:Router) { }
 
   ngOnInit() {
-    // this.logForm = this.formBuilder.group({
-    //   username: ['', Validators.required],
-    //   password: ['', Validators.required]
-    };
- 
-    // reset login status
-    // this.authenticationService.logout();
-
-    // get return url from route parameters or default to '/'
-//     this.returnUrl = this.router.snapshot.queryParams['returnUrl'] || '/';
-// }
-
-// convenience getter for easy access to form fields
-// get f() { return this.loginForm.controls; }
-
   }
 
-  // onSubmit(logForm: NgForm){
-  //   if(this.logForm.invalid){
-  //   return;
-  //   }
-  //   this.authenticateService.login(this.name.value, this.apellidos.value, this.email.value, password.value)
-  
-  //   .subscribe(
-  //     data=>{
-  //       this.router.navigate([this.returnURL]);
-  //     },
-  
-  // }
+  onSubmit(loginForm: NgForm) {
+    console.log(loginForm, this.usuario);
+    if (loginForm.valid) {
+      this._authService.getUsuarioTokenFromAPI(this.usuario).subscribe(
+        token => { this._router.navigate(['/login']) },
+        error => { this.errorServer = true; }
+      );
+    } else {
+      this.errorForm = true;
+    }
+  }
 
+}
 

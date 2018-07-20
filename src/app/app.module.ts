@@ -3,6 +3,7 @@ import { NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+
 import { SectionComponent } from './section/section.component';
 import { LoginComponent } from './login/login.component';
 import { RegistroComponent } from './registro/registro.component';
@@ -16,13 +17,20 @@ import { ListaUsuarioBuscadoComponent } from './lista-usuario-buscado/lista-usua
 import { DatosUsuarioBusquedaComponent } from './datos-usuario-busqueda/datos-usuario-busqueda.component';
 import { ListaAmigoComponent } from './lista-amigo/lista-amigo.component';
 import { PageNotFoundComponent } from './commons/page-not-found/page-not-found.component';
+
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { UsuarioService } from './services/usuario.service';
 import { HttpClientModule } from '@angular/common/http';
+
 import { AuthService } from './services/auth.service';
 import { PaisService } from './services/pais.service';
 import { InstrumentoService } from './services/instrumento.service';
 import { GenerosService } from './services/genero-musical.service';
+
+import {MatButtonModule, MatCheckboxModule, MatPseudoCheckboxModule, MatMenuModule, MatIconModule} from '@angular/material';
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import {MatToolbarModule} from '@angular/material/toolbar';
+
 
 @NgModule({
   declarations: [
@@ -47,7 +55,14 @@ import { GenerosService } from './services/genero-musical.service';
     AppRoutingModule,
     FormsModule,
     ReactiveFormsModule,
-    HttpClientModule
+    HttpClientModule,
+    MatButtonModule,
+    MatCheckboxModule,
+    BrowserAnimationsModule,
+    MatPseudoCheckboxModule,
+    MatMenuModule,
+    MatIconModule,
+    MatToolbarModule
     
   ],
   providers: [

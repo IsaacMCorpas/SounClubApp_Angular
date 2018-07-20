@@ -1,13 +1,19 @@
-<form method="POST" class="action" id="formulario">
-  <h2>
-    <i>Iniciar Sesion</i>
-  </h2>
-  <div class="error" id="showError"></div>
-  <label>Login
-    <input type="text" placeholder="&#128272; Correo electronico" value="" name="usuario" id="usuario">
-  </label>
-  <label>Password
-    <input type="password" id="passwordsignup" minlength="3" maxlength="12" placeholder="&#128272;Contraseña" name="passwordsignup">
-  </label>
-  <div><button>Acceder</button></div>
-</form>
+<section>
+  <h2>Login</h2>
+  <div *ngIf="errorForm" class="error">Completa todos los campos con el formato correcto</div>
+  <div *ngIf="errorServer" class="error">Datos incorrectos, vuelve a intentarlo</div>
+  <form #loginForm="ngForm" (ngSubmit)="onSubmit(loginForm)">
+    
+    <div>
+      <input type="email" placeholder="Email" name="email" [(ngModel)]="usuario.email" #emailF="ngModel" required email>
+      <div class="error" *ngIf="!emailF.valid && emailF.dirty">Campo incorrecto</div>
+    </div>
+    
+    <div>
+      <input type="text" placeholder="Contraseña" name="pass" [(ngModel)]="usuario.pass" #passF="ngModel" required>
+      <div class="error" *ngIf="!passF.valid && passF.dirty">Campo incorrecto</div>
+    </div>
+    
+    <div><button [disabled]="!loginForm.valid">Entrar</button></div>
+  </form>
+</section>

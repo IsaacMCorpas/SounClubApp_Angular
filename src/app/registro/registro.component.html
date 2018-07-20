@@ -3,32 +3,34 @@
     <h2>
       Registrate
     </h2>
+
     <div>
       <label for="nombre">Nombre</label>
       <input type="text" [(ngModel)]="usuario.nombre" placeholder="" name="nombre">
-    <!-- <div *ngIf="submitted && f.nombre.errors">
-      <div *ngIf=""></div> -->
-    <!-- </div> -->
     </div>
+
     <div>
-        <label for="apellidos">Apellidos</label>
+      <label for="apellidos">Apellidos</label>
       <input type="text" [(ngModel)]="usuario.apellidos" placeholder="" name="apellidos">
     </div>
+
     <div>
-        <label for="email">Email</label>
+      <label for="email">Email</label>
       <input name="email" type="email" [(ngModel)]="usuario.email" placeholder="">
     </div>
+
     <div>
-        <label for="password">Contraseña</label>
-      <input type="password" [(ngModel)]="usuario.password"  minlength="3" maxlength="12" placeholder="" name="password">
+      <label for="password">Contraseña</label>
+      <input type="password" [(ngModel)]="usuario.password" minlength="3" maxlength="12" placeholder="" name="password">
     </div>
+
     <div>
-        <label for="">Repite Contraseña</label>
-      <input   minlength="3" maxlength="12" name="confirmar_clave" required="required" type="password"
-        placeholder=";" />
+      <label for="">Repite Contraseña</label>
+      <input minlength="3" maxlength="12" name="confirmar_clave" required="required" type="password" placeholder=";" />
     </div>
+
     <div>
-      <button [disabled]="!regiForm.valid">Registrate</button>
+      <button mat-button [disabled]="!regiForm.valid">Registrate</button>
     </div>
 
   </form>
