@@ -8,7 +8,7 @@ import{Genero_Musical} from '../modelos/genero_musical'
 import { AuthService } from './auth.service';
 
 @Injectable()
-export class TareasService {
+export class GenerosService {
 
   private _generoMusicalStore: Genero_Musical[];
   private _apiGeneroMusical: string = 'http://localhost:8080/SoundClubApp/api/genero_musical';

@@ -21,6 +21,8 @@ import { UsuarioService } from './services/usuario.service';
 import { HttpClientModule } from '@angular/common/http';
 import { AuthService } from './services/auth.service';
 import { PaisService } from './services/pais.service';
+import { InstrumentoService } from './services/instrumento.service';
+import { GenerosService } from './services/genero-musical.service';
 
 @NgModule({
   declarations: [
@@ -51,7 +53,10 @@ import { PaisService } from './services/pais.service';
   providers: [
     UsuarioService,
     AuthService,
-    PaisService
+    PaisService,
+    InstrumentoService,
+    GenerosService
+
    
   ],
   bootstrap: [AppComponent]

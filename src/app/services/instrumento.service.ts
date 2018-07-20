@@ -12,7 +12,7 @@ export class InstrumentoService {
 
 
   private _instrumentosStore: Instrumento[];
-  private _apiInstrumento: string ='http://localhost:8080/SoundClubApp/api/Instrumento';
+  private _apiInstrumento: string ='http://localhost:8080/SoundClubApp/api/instrumento';
   private _instrumentosObs: Observable<Instrumento[]>;
 
   constructor(private _httpClient: HttpClient, private _router: Router,private _authService:AuthService) { }
@@ -46,7 +46,7 @@ export class InstrumentoService {
         .pipe(
           tap(
             data => this._instrumentosStore = data,
-            error => { console.log('error:', error); this._router.navigate(['/login']); }
+            error => { console.log('error:', error); }
           )
         );
     }
