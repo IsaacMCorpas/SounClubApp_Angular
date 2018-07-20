@@ -12,6 +12,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 })
 export class RegistroComponent implements OnInit {
 
+
   regiForm: FormGroup;
   usuario:Usuario = new Usuario(0,"","","","");
 
@@ -20,22 +21,23 @@ export class RegistroComponent implements OnInit {
   constructor(private _usuariosService:UsuarioService, private router: Router,private formBuilder: FormBuilder ) { }
 
 
-// convenience getter for easy access to form fields
-get f() { return this.regiForm.controls; }
-
-  ngOnInit() {
+  ngOnInit(){
+  //   this.regiForm = this.formBuilder.group({
+  //     nombre: ['', Validators.required],
+  //     apellidos: ['', Validators.required],
+  //     email: ['', Validators.required],
+  //     password: ['', [Validators.required, Validators.minLength(6)]]
+  // });
   }
   
-  onSubmit(regiForm:NgForm){
-   
-    if(this.regiForm.invalid){
-      return;
-    }
-      this._usuariosService.addUsuario(this.regiForm.value)
+  onSubmit(myForm:NgForm){
+    if(myForm.valid){
+      this._usuariosService.addUsuario(this.usuario)
       .subscribe(
         data=>{
-          this.router.navigate(['/login']);
-          console.log("dame un usuario=",this.regiForm.value);
+          console.log(this.usuario)
+        this.router.navigate(['/login']);
+          
         },
 
   );
@@ -43,5 +45,5 @@ get f() { return this.regiForm.controls; }
     }
   }
   
-
+}
 

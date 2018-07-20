@@ -77,8 +77,8 @@ import { AuthService } from './auth.service';
     }
 
 
-    addUsuario(userAdd: Usuario):Observable<number>{
-      console.log(userAdd.apellidos);
+    addUsuario(userAdd: Usuario):Observable<Usuario>{
+      console.log(userAdd);
       const httpOptions = {
         headers: new HttpHeaders({
           'Content-Type':  'application/json',
@@ -86,7 +86,7 @@ import { AuthService } from './auth.service';
         })
       }; 
       
-      return this._httpClient.post<any>(this._apiUsuario,userAdd,httpOptions)
+      return this._httpClient.post<Usuario>(this._apiUsuario,userAdd,httpOptions)
       .pipe(
         tap(data => { 
           //falta poner dato
@@ -106,7 +106,7 @@ import { AuthService } from './auth.service';
         })
       }; 
 
-      let urlUsuario=this._apiUsuario+'/'+userUpdate.uid;
+      let urlUsuario=this._apiUsuario+'/'+userUpdate.id;
       return this._httpClient.post<any>(this._apiUsuario,userUpdate,httpOptions)
       .pipe(
         tap(data => { 
