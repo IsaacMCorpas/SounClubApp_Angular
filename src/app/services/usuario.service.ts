@@ -108,7 +108,7 @@ import { AuthService } from './auth.service';
       }; 
 
       let urlUsuario=this._apiUsuario+'/'+userUpdate.id;
-      return this._httpClient.post<any>(this._apiUsuario,userUpdate,httpOptions)
+      return this._httpClient.put<any>(this._apiUsuario,userUpdate,httpOptions)
       .pipe(
         tap(data => { 
           //falta poner dato
