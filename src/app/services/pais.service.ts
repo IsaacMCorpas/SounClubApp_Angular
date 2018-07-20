@@ -45,7 +45,7 @@ export class PaisService {
         .pipe(
           tap(
             data => this._paisesStore = data,
-            error => { console.log('error:', error); this._router.navigate(['/login']); }
+            error => { console.log('error:', error);}
           )
         );
     }

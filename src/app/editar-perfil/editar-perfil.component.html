@@ -47,8 +47,8 @@
     </div>
     <div>
       <label for="pais"></label>
-      <select name="pais" id="pais" [(ngModel)]="unPais.nombre" required>
-        <option *ngFor="let unPais of paises" [ngValue]="unPais.cid"></option>
+      <select name="pais" id="pais" [(ngModel)]="unUsuario.pais_recide" required>
+        <option *ngFor="let unPais of paises" [ngValue]="unPais.cid">{{unPais.nombre}}</option>
       </select>
     </div>
     <div>
