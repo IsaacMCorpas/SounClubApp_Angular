@@ -39,26 +39,28 @@
       </div>
       <div>
         <label for="fecha"></label>
-        <input type="date" name="fecha" value="">
+        <input type="date" name="fecha" [(ngModel)]="unUsuario.fecha_nacimiento">
       </div>
       <!-- <div>
         <label for="sexo"></label>
         <input type="radio" name="sexo" id="sexo" [(ngModel)]="unUsuario.sexo">
       </div> -->
       <fieldset class="sexo">
-				<legend>Seleccione su sexo:</legend>
-				<p>
-					<label> <input name="group" type="radio"
-						[(ngModel)]="unUsuario.sexo" value="0"> <span>Varon</span>
-					</label>
-				</p>
-				<p>
-					<label> <input name="group" [(ngModel)]="unUsuario.sexo"
-						value="1" type="radio"> <span>Mujer</span>
-					</label>
-				</p>
+        <legend>Seleccione su sexo:</legend>
+        <p>
+          <label>
+            <input name="group" type="radio" [(ngModel)]="unUsuario.sexo" value="0">
+            <span>Varon</span>
+          </label>
+        </p>
+        <p>
+          <label>
+            <input name="group" [(ngModel)]="unUsuario.sexo" value="1" type="radio">
+            <span>Mujer</span>
+          </label>
+        </p>
 
-			</fieldset>
+      </fieldset>
       <div>
         <label for="pais"></label>
         <select name="pais" id="pais" [(ngModel)]="unUsuario.pais_recide" required>
@@ -68,22 +70,22 @@
       <div class="form-group">Instrumentos Favoritos:
         <div class="form-check" *ngFor="let aIns of instrumentos; let i = index;">
           <label class="form-check-label" for="aIns{{aIns.nombre}}">
-            <input class="form-check-input" type="checkbox" id="aIns{{aIns.nombre}}" name="tagOptions" (change)="changeCheckbox(i)" [checked]="aIns.checked"> {{aIns.nombre}}
+            <input class="form-check-input" type="checkbox" id="aIns{{aIns.nombre}}" name="tagOptions" [checked]="aIns.checked"> {{aIns.nombre}}
           </label>
         </div>
       </div>
       <div class="form-group">Generos Musicales:
         <div class="form-check" *ngFor="let aGenre of generos_musicales; let i = index;">
           <label class="form-check-label" for="aGenre{{aGenre.nombre}}">
-            <input class="form-check-input" type="checkbox" id="aGenre{{aGenre.nombre}}" name="tagOptions" (change)="changeCheckbox(i)" [checked]="aGenre.checked"> {{aGenre.nombre}}
+            <input class="form-check-input" type="checkbox" id="aGenre{{aGenre.nombre}}" name="tagOptions" [checked]="aGenre.checked"> {{aGenre.nombre}}
           </label>
         </div>
       </div>
       <br>
       <br>
-      <button id="btn_Enviar" type="submit">
-        Aceptar:</button>
-
+      <div>
+        <button [disabled]="!editForm.valid">Guardar</button>
+      </div>
     </div>
   </form>
 </div>

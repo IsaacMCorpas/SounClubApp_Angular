@@ -42,8 +42,9 @@ export class EditarPerfilComponent implements OnInit {
     
   }
   
-  onSubmit(editForm:NgForm){
-    if(editForm.valid){console.log(this.unUsuario)
+  onSubmit(myForm:NgForm){
+    if(myForm.valid){
+      this._usuarioService.actualizarUsuario(this.unUsuario).subscribe(elUsuario=>{this.unUsuario=elUsuario});
       
     }
   }
