@@ -47,3 +47,18 @@
 .example-margin {
   margin: 0 10px;
 }
+
+
+/* body{
+  background-image: url("./assets/imgs/altavozcomedor.jpg");
+   background-color: transparent; 
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  z-index: -1;
+}  */
+
+
+form{
+  background-color: white;
+}

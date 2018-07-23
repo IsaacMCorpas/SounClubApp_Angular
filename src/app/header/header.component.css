@@ -1,16 +1,27 @@
-.example-icon {
-    padding: 0 14px;
-  }
+
   
   .example-spacer {
     flex: 1 1 auto;
   }
 
 
-  #salir{
-      background: black; 
-  }
 
   #barNav{
       background-color: black;
   }
+
+  .iconos{
+    background-color: black;
+    color:#FAA900 ;
+    border: 1px solid black ;
+  }
+  .iconos:hover {
+    background-color: #FAA900;
+    color:black;
+    box-shadow: 0 0 2px 1px black;
+  }
+  .rigth{
+    position: absolute;
+    right:5%;
+  }
+  
