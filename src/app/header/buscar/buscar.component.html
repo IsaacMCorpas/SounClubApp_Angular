@@ -1,8 +1,8 @@
-<div >
+<!--<div >
 	<form  #frmBusqueda="ngForm"  (ngSubmit)="onSubmit(frmBusqueda)" id="fsbusqueda" >
       <input type="search" name="nameToFind" (keyup)="buscarAmigos(nameToFind)" [(ngModel)]="nameToFind" id="txtbusqueda"  placeholder=" Buscar..." required >
       <button id="btnbusqueda" [disabled]="!frmBusqueda.valid"> Buscar
-        <!--<i id="fa fa-search" class="fa fa-search"></i>-->
+        <i id="fa fa-search" class="fa fa-search"></i>
       </button>
   </form>
   <div id="sugerencias" ></div>
@@ -12,4 +12,29 @@
         </span></a></li>
       <li></li>
     </ul>
-	</div> 
+  </div> 
+  
+
+  <div class="buscar">
+    <mat-card-title>Proyectos</mat-card-title>-->
+    <form  #frmBusqueda="ngForm"  (ngSubmit)="onSubmit(frmBusqueda)" id="fsbusqueda" >
+    <mat-form-field >
+      <input matInput placeholder="buscar..." (keyup)="buscarAmigos(nameToFind)" value="" [(ngModel)]="nameToFind" name="nameToFind" required>
+      <button id="btnbusqueda" [disabled]="!frmBusqueda.valid"> Buscar
+      </button>
+    </mat-form-field>
+  
+    <mat-nav-list>
+      <mat-list-item *ngFor="let unAmigo of listaUsuarios">
+        <a matLine  [routerLink]="['/usuario/',unAmigo.id]">
+          <span><img class="avatar-image" [src]="unAmigo.foto" alt="Photo of user">
+            {{unAmigo.nombre}}   {{unAmigo.apellidos}}
+          </span>
+        </a>
+        <button mat-icon-button  [routerLink]="['/usuario/',unAmigo.id]">
+          <mat-icon>info</mat-icon>
+        </button>
+      </mat-list-item>
+    </mat-nav-list>
+   
+  </form>
