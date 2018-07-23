@@ -1,3 +1,12 @@
-<p>
-  lista-usuario-buscado works!
-</p>
+<mat-card class="example-card" >
+  <mat-card-header *ngFor="let unUsuario of listaUsuarios">
+    <img  mat-card-avatar src="unUsuario.foto" alt="Photo of a Shiba Inu">
+    <mat-card-title>{{unUsuario.nombre}} {{unUsuario.apellidos}}</mat-card-title>
+    <mat-card-subtitle>{{unUsuario.ciudad_recide}}</mat-card-subtitle>
+    <a [routerLink]="['/usuario/',unUsuario.id]"><button mat-fab class="iconos rigth"><mat-icon>portrait</mat-icon></button></a>
+    <br>
+    <mat-divider></mat-divider>
+  </mat-card-header>
+
+</mat-card>
+
