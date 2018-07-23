@@ -1,1 +1,49 @@
 @import "~@angular/material/prebuilt-themes/indigo-pink.css"
+
+/*************************************************/
+.avatar-image {
+    border: 1px solid #ddd;
+    border-radius:  45%;
+    padding: 5px;
+    width: 150px;
+}
+
+.avatar-image:hover {
+    box-shadow: 0 0 2px 1px black;
+}
+/********************************************************/
+.example-card {
+  max-width: 90%;
+}
+
+.example-header-image {
+  background-size: cover;
+}
+
+/**********************************************************/
+.iconos{
+  background-color: black;
+  color:#FAA900 ;
+  border: 1px solid black ;
+}
+.iconos:hover {
+  background-color: #FAA900;
+  color:black;
+  box-shadow: 0 0 2px 1px black;
+}
+.rigth{
+  position: absolute;
+  right:5%;
+}
+
+/************************************/
+.example-section {
+  display: flex;
+  align-content: center;
+  align-items: center;
+  height: 60px;
+}
+
+.example-margin {
+  margin: 0 10px;
+}
