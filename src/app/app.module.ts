@@ -27,9 +27,22 @@ import { PaisService } from './services/pais.service';
 import { InstrumentoService } from './services/instrumento.service';
 import { GenerosService } from './services/genero-musical.service';
 
-import {MatButtonModule, MatCheckboxModule, MatPseudoCheckboxModule, MatMenuModule, MatIconModule} from '@angular/material';
+import {MatButtonModule, 
+        MatCheckboxModule, 
+        MatPseudoCheckboxModule, 
+        MatMenuModule, 
+        MatIconModule,
+        MatFormFieldModule,
+        MatInputModule,
+        MatToolbarModule,
+        MatListModule,
+        MatCardModule,
+        MatDividerModule
+      } from '@angular/material';
+
+
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
-import {MatToolbarModule} from '@angular/material/toolbar';
+
 
 
 @NgModule({
@@ -56,14 +69,19 @@ import {MatToolbarModule} from '@angular/material/toolbar';
     FormsModule,
     ReactiveFormsModule,
     HttpClientModule,
-    MatButtonModule,
-    MatCheckboxModule,
     BrowserAnimationsModule,
     MatPseudoCheckboxModule,
-    MatMenuModule,
+    MatButtonModule, 
+    MatCheckboxModule, 
+    MatPseudoCheckboxModule, 
+    MatMenuModule, 
     MatIconModule,
-    MatToolbarModule
-    
+    MatFormFieldModule,
+    MatInputModule,
+    MatToolbarModule,
+    MatListModule,
+    MatCardModule,
+    MatDividerModule
   ],
   providers: [
     UsuarioService,
