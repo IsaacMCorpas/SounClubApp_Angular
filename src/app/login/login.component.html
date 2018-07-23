@@ -1,19 +1,20 @@
 <section>
-  <h2>Login</h2>
+  
   <div *ngIf="errorForm" class="error">Completa todos los campos con el formato correcto</div>
   <div *ngIf="errorServer" class="error">Datos incorrectos, vuelve a intentarlo</div>
-  <form #loginForm="ngForm" (ngSubmit)="onSubmit(loginForm)">
-    
-    <div>
-      <input type="email" placeholder="Email" name="email" [(ngModel)]="usuario.email" #emailF="ngModel" required email>
+  <form class="login-form" #loginForm="ngForm" (ngSubmit)="onSubmit(loginForm)">
+      <h2>Login</h2>
+    <mat-form-field>
+      <input type="email" matInput placeholder="Email" name="email" [(ngModel)]="usuario.email" #emailF="ngModel" required email>
       <div class="error" *ngIf="!emailF.valid && emailF.dirty">Campo incorrecto</div>
-    </div>
-    
-    <div>
-      <input type="text" placeholder="Contraseña" name="pass" [(ngModel)]="usuario.pass" #passF="ngModel" required>
+    </mat-form-field>
+<br>
+    <mat-form-field>
+      <input type="text" matInput placeholder="Contraseña" name="pass" [(ngModel)]="usuario.pass" #passF="ngModel" required>
       <div class="error" *ngIf="!passF.valid && passF.dirty">Campo incorrecto</div>
+    </mat-form-field>
+    <div>
+      <button [disabled]="!loginForm.valid">Entrar</button>
     </div>
-    
-    <div><button [disabled]="!loginForm.valid">Entrar</button></div>
   </form>
 </section>

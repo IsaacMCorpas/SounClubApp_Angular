@@ -1,37 +1,38 @@
-<section>
-  <form #regiForm="ngForm" (ngSubmit)="onSubmit(regiForm)">
-    <h2>
-      Registrate
-    </h2>
 
-    <div>
-      <label for="nombre">Nombre</label>
-      <input type="text" [(ngModel)]="usuario.nombre" placeholder="" name="nombre">
-    </div>
+  
+    
 
-    <div>
-      <label for="apellidos">Apellidos</label>
-      <input type="text" [(ngModel)]="usuario.apellidos" placeholder="" name="apellidos">
-    </div>
+    <form class="registro-form" #regiForm="ngForm" (ngSubmit)="onSubmit(regiForm)">
+        <h2>
+            Registrate
+          </h2>
+        <mat-form-field class="registro-full-width">
+      
+      <input type="text" [(ngModel)]="usuario.nombre" matInput placeholder="Nombre" name="nombre">
+    </mat-form-field>
+  
 
-    <div>
-      <label for="email">Email</label>
-      <input name="email" type="email" [(ngModel)]="usuario.email" placeholder="">
-    </div>
+    <mat-form-field class="registro-full-width">
+     
+      <input type="text" [(ngModel)]="usuario.apellidos" matInput placeholder="Apellidos" name="apellidos">
+    </mat-form-field>
 
-    <div>
-      <label for="password">Contraseña</label>
-      <input type="password" [(ngModel)]="usuario.password" minlength="3" maxlength="12" placeholder="" name="password">
-    </div>
+    <mat-form-field class="registro-full-width">
+     
+      <input name="email" type="email" [(ngModel)]="usuario.email" matInput placeholder="Email">
+    </mat-form-field>
 
-    <div>
-      <label for="">Repite Contraseña</label>
-      <input minlength="3" maxlength="12" name="confirmar_clave" required="required" type="password" placeholder=";" />
-    </div>
+    <mat-form-field class="registro-full-width">
+     
+      <input type="password" [(ngModel)]="usuario.password" minlength="3" maxlength="12" matInput placeholder="Contraseña" name="password">
+    </mat-form-field>
+    <mat-form-field class="registro-full-width">
+     
+      <input minlength="3" maxlength="12" name="confirmar_clave" required="required" type="password" matInput placeholder="Confirma Contraseña" />
+    </mat-form-field>
 
     <div>
       <button mat-button [disabled]="!regiForm.valid">Registrate</button>
     </div>
 
   </form>
-</section>

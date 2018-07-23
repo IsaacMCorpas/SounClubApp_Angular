@@ -1,5 +1,5 @@
 <div>
-  <form #editForm="ngForm" (ngSubmit)="onSubmit(editForm)">
+  <form class="editPerf-form" #editForm="ngForm" (ngSubmit)="onSubmit(editForm)">
     <div>
       <div>
         <label>Seleccione una imagen de perfil:
@@ -10,42 +10,50 @@
         <div id="foto"></div>
       </div>
       <div>
-        <label for="nombre"></label>
-        <input type="text" name="nombre" id="nombre" [(ngModel)]="unUsuario.nombre">
+        <mat-form-field class="editPerf-full-width">
+          <input type="text" matInput name="nombre" id="nombre" [(ngModel)]="unUsuario.nombre">
+        </mat-form-field>
       </div>
       <div>
-        <label for="apellidos"></label>
-        <input type="text" name="apellidos" id="apellidos" [(ngModel)]="unUsuario.apellidos">
+        <mat-form-field class="editPerf-full-width">
+          <input type="text" matInput name="apellidos" id="apellidos" [(ngModel)]="unUsuario.apellidos">
+        </mat-form-field>
       </div>
       <div>
-        <label for="email"></label>
-        <input type="text" name="email" id="email" [(ngModel)]="unUsuario.email">
+        <mat-form-field class="editPerf-full-width">
+          <input type="text" matInput name="email" id="email" [(ngModel)]="unUsuario.email">
+        </mat-form-field>
       </div>
       <div>
-        <label for="password"></label>
-        <input type="password" name="password" id="password" [(ngModel)]="unUsuario.password">
+        <mat-form-field class="editPerf-full-width">
+          <input type="password" matInput name="password" id="password" [(ngModel)]="unUsuario.password">
+        </mat-form-field>
       </div>
       <div>
-        <label for="repassword"></label>
-        <input type="password" name="repassword" id="repassword" [(ngModel)]="unUsuario.password">
+        <mat-form-field class="editPerf-full-width">
+          <input type="password" matInput name="repassword" id="repassword" [(ngModel)]="unUsuario.password">
+        </mat-form-field>
       </div>
       <div>
-        <label for="ciudad"></label>
-        <input type="text" name="ciudad" id="ciudad" [(ngModel)]="unUsuario.ciudad_recide">
+        <mat-form-field class="editPerf-full-width">
+          <input type="text" matInput name="ciudad" id="ciudad" [(ngModel)]="unUsuario.ciudad_recide">
+        </mat-form-field>
       </div>
       <div>
-        <label for="calle"></label>
-        <input type="text" name="calle" id="calle" [(ngModel)]="unUsuario.calle">
+        <mat-form-field class="editPerf-full-width">
+          <input type="text" matInput name="calle" id="calle" [(ngModel)]="unUsuario.calle">
+        </mat-form-field>
       </div>
       <div>
-        <label for="fecha"></label>
-        <input type="date" name="fecha" [(ngModel)]="unUsuario.fecha_nacimiento">
+        <mat-form-field class="editPerf-full-width">
+          <input type="date" matInput name="fecha" [(ngModel)]="unUsuario.fecha_nacimiento">
+        </mat-form-field>
       </div>
       <!-- <div>
         <label for="sexo"></label>
         <input type="radio" name="sexo" id="sexo" [(ngModel)]="unUsuario.sexo">
       </div> -->
-      <fieldset class="sexo">
+      <section class="sexo-section">
         <legend>Seleccione su sexo:</legend>
         <p>
           <label>
@@ -59,28 +67,33 @@
             <span>Mujer</span>
           </label>
         </p>
+      </section>
 
-      </fieldset>
       <div>
-        <label for="pais"></label>
+        <label for="pais">Pais</label>
         <select name="pais" id="pais" [(ngModel)]="unUsuario.pais_recide" required>
           <option *ngFor="let unPais of paises" [ngValue]="unPais.cid">{{unPais.nombre}}</option>
         </select>
       </div>
-      <div class="form-group">Instrumentos Favoritos:
-        <div class="form-check" *ngFor="let aIns of instrumentos; let i = index;">
-          <label class="form-check-label" for="aIns{{aIns.nombre}}">
-            <input class="form-check-input" type="checkbox" id="aIns{{aIns.nombre}}" name="tagOptions" [checked]="aIns.checked"> {{aIns.nombre}}
-          </label>
+
+      <section class="insFav-section">
+        <div class="form-group">Instrumentos Favoritos:
+          <div class="form-check" *ngFor="let aIns of instrumentos; let i = index;">
+            <label class="form-check-label" for="aIns{{aIns.nombre}}">
+              <input class="form-check-input" type="checkbox" id="aIns{{aIns.nombre}}" name="tagOptions" [checked]="aIns.checked"> {{aIns.nombre}}
+            </label>
+          </div>
         </div>
-      </div>
-      <div class="form-group">Generos Musicales:
-        <div class="form-check" *ngFor="let aGenre of generos_musicales; let i = index;">
-          <label class="form-check-label" for="aGenre{{aGenre.nombre}}">
-            <input class="form-check-input" type="checkbox" id="aGenre{{aGenre.nombre}}" name="tagOptions" [checked]="aGenre.checked"> {{aGenre.nombre}}
-          </label>
+      </section>
+      <section class="generMusi-section">
+        <div class="form-group">Generos Musicales:
+          <div class="form-check" *ngFor="let aGenre of generos_musicales; let i = index;">
+            <label class="form-check-label" for="aGenre{{aGenre.nombre}}">
+              <input class="form-check-input" type="checkbox" id="aGenre{{aGenre.nombre}}" name="tagOptions" [checked]="aGenre.checked"> {{aGenre.nombre}}
+            </label>
+          </div>
         </div>
-      </div>
+      </section>
       <br>
       <br>
       <div>
