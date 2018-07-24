@@ -20,21 +20,20 @@
     <form  #frmBusqueda="ngForm"  (ngSubmit)="onSubmit(frmBusqueda)" id="fsbusqueda" >
     <mat-form-field >
       <input matInput placeholder="buscar..." (keyup)="buscarAmigos(nameToFind)" value="" [(ngModel)]="nameToFind" name="nameToFind" required>
+      <span class="example-spacer"></span>
       <button id="btnbusqueda" [disabled]="!frmBusqueda.valid"> Buscar
-      </button>
-    </mat-form-field>
+        </button>
   
     <mat-nav-list>
-      <mat-list-item *ngFor="let unAmigo of listaUsuarios">
+      <mat-list-item class="mostrar" *ngFor="let unAmigo of listaUsuarios" >
         <a matLine  [routerLink]="['/usuario/',unAmigo.id]">
-          <span><img class="avatar-image" [src]="unAmigo.foto" alt="Photo of user">
+         <img class="avatar-image" [src]="unAmigo.foto" alt="Photo of user">
             {{unAmigo.nombre}}   {{unAmigo.apellidos}}
-          </span>
         </a>
-        <button mat-icon-button  [routerLink]="['/usuario/',unAmigo.id]">
-          <mat-icon>info</mat-icon>
-        </button>
+    
       </mat-list-item>
     </mat-nav-list>
+    
+  </mat-form-field>
    
   </form>

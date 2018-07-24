@@ -28,7 +28,7 @@ export class LoginComponent implements OnInit {
     console.log(loginForm, this.usuario);
     if (loginForm.valid) {
       this._authService.getUsuarioTokenFromAPI(this.usuario).subscribe(
-        token => { this._router.navigate(['/login']) },
+        token => { this._router.navigate(['/principal']) },
         error => { this.errorServer = true; }
       );
     } else {

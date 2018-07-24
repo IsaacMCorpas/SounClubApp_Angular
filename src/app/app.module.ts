@@ -42,6 +42,7 @@ import {MatButtonModule,
 
 
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import { PrincipalComponent } from './principal/principal.component';
 
 
 
@@ -61,6 +62,7 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
     DatosUsuarioBusquedaComponent,
     ListaAmigoComponent,
     PageNotFoundComponent,
+    PrincipalComponent,
     
   ],
   imports: [

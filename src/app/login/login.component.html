@@ -10,11 +10,15 @@
     </mat-form-field>
 <br>
     <mat-form-field>
-      <input type="text" matInput placeholder="Contraseña" name="pass" [(ngModel)]="usuario.pass" #passF="ngModel" required>
+      <input type="text" matInput placeholder="Contraseña" name="password" [(ngModel)]="usuario.password" #passF="ngModel" required>
       <div class="error" *ngIf="!passF.valid && passF.dirty">Campo incorrecto</div>
     </mat-form-field>
     <div>
-      <button [disabled]="!loginForm.valid">Entrar</button>
+        <button mat-raised-button inverse [disabled]="!loginForm.valid">Acceder</button>
+        <a [routerLink]="['/registro']">Registarse....</a>
     </div>
+
   </form>
+
+
 </section>
