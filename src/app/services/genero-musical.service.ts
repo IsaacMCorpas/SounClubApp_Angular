@@ -11,7 +11,7 @@ import { AuthService } from './auth.service';
 export class GenerosService {
 
   private _generoMusicalStore: Genero_Musical[];
-  private _apiGeneroMusical: string = 'http://localhost:8080/SoundClubApp/api/genero_musical';
+  private _apiGeneroMusical: string = 'http://10.100.17.75/SoundClubApp/api/genero_musical';
   private _generoMusicalObs: Observable<Genero_Musical[]>;
 
   constructor(private _httpClient: HttpClient,private _authService:AuthService, private _router:Router) {

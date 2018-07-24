@@ -12,7 +12,7 @@ export class InstrumentoService {
 
 
   private _instrumentosStore: Instrumento[];
-  private _apiInstrumento: string ='http://localhost:8080/SoundClubApp/api/instrumento';
+  private _apiInstrumento: string ='http://10.100.17.75/SoundClubApp/api/instrumento';
   private _instrumentosObs: Observable<Instrumento[]>;
 
   constructor(private _httpClient: HttpClient, private _router: Router,private _authService:AuthService) { }

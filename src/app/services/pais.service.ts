@@ -11,7 +11,7 @@ import { AuthService } from './auth.service';
 export class PaisService {
 
   private _paisesStore: Pais[];
-  private _apiPaises:string= 'http://localhost:8080/SoundClubApp/api/pais';
+  private _apiPaises:string= 'http://10.100.17.75/SoundClubApp/api/pais';
   private _paisesObs:Observable<Pais[]>;
 
   constructor(private _httpClient: HttpClient, private _router: Router,private _authService:AuthService) { }

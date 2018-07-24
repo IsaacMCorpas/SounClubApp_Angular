@@ -8,7 +8,7 @@ import { Usuario } from '../modelos/usuario';
   providedIn: 'root'
 })
 export class AuthService {
-  private _apiAuth: string = 'http://localhost:8080/SoundClubApp/api/auth';
+  private _apiAuth: string = 'http://10.100.17.75/SoundClubApp/api/auth';
   private _token:string='';
 
   constructor(private _httpClient:HttpClient) { }

@@ -17,7 +17,7 @@ import { AuthService } from './auth.service';
     private _usuarioStore: Usuario[];
     private _usuario;
     //private _apiUsuarios: string = 'http://www.mocky.io/v2/5b50a3c53600005600dd0f55';
-    private _apiUsuario: string ='http://localhost:8080/SoundClubApp/api/usuario';
+    private _apiUsuario: string ='http://10.100.17.75/SoundClubApp/api/usuario';
     private _usuarioObs: Observable<Usuario[]>;
     private _tokenusuarioObservable:string;  
     constructor(private _httpClient: HttpClient, private _router:Router,private _AuthService:AuthService) {
